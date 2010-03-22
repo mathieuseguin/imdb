@@ -1,10 +1,9 @@
 require 'imdb'
 require 'filecache'
 
-describe "Imdb::Movie" do
+describe "IMDB::Movie" do
   describe "valid movie" do
     before(:all) do
-      #IMDB.cache = FileCache.new("imdb", "/tmp")
       @movie = IMDB::Movie.new("0133093")
     end
 

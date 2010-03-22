@@ -11,3 +11,4 @@ require 'imdb'
 
 load 'imdb_spec.rb'
 load 'movie_spec.rb'
+load 'search_spec.rb'

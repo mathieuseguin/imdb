@@ -10,12 +10,13 @@ require 'cgi'
 
 require 'imdb/http'
 require 'imdb/movie'
+require 'imdb/search'
 require 'imdb/string_extensions'
 
 module IMDB
   VERSION = '0.0.2'
   
-  URL                     = "http://www.imdb.com"
+  URL               = "http://www.imdb.com"
   
   SEARCH_URL        = "http://www.imdb.com/find?q=%s;s=tt"          
   MOVIE_URL         = "http://www.imdb.com/title/tt%s/"

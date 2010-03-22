@@ -106,7 +106,11 @@ module IMDB
     end
     
     def title
-      document.search("h1").children.first.text.strip.imdb_unescape_html rescue nil
+      @title ||= document.search("h1").children.first.text.strip.imdb_unescape_html rescue nil
+    end
+    
+    def title=(title)
+      @title = title
     end
     
     def url

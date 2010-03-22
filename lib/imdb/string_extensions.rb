@@ -1,7 +1,7 @@
 require 'cgi'
 require 'iconv'
  
-module Imdb
+module IMDB
   module StringExtensions
   
     def imdb_unescape_html
@@ -18,4 +18,4 @@ module Imdb
   end
 end
  
-String.send :include, Imdb::StringExtensions
+String.send :include, IMDB::StringExtensions
