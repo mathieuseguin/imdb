@@ -3,14 +3,17 @@ $:.unshift(File.dirname(__FILE__)) unless
  
 require 'rubygems'
 require 'open-uri'
-require 'hpricot'
+require 'nokogiri'
+require 'filecache'
+require 'digest/md5'
 require 'cgi'
 
+require 'imdb/http'
 require 'imdb/movie'
 require 'imdb/string_extensions'
 
 module IMDB
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
   
   URL                     = "http://www.imdb.com"
   
@@ -18,6 +21,14 @@ module IMDB
   MOVIE_URL         = "http://www.imdb.com/title/tt%s/"
   CASTING_URL       = "http://www.imdb.com/name/nm%s/"
   PERSON_URL        = "http://www.imdb.com/name/nm%s/"
+  
+  def self.cache
+    @cache
+  end
+  
+  def self.cache=(cache)
+    @cache = cache
+  end
   
   def self.parse_id(url)
     $1 if url =~ /http:\/\/.*?\.imdb\.com\/title\/tt(\d+)/
